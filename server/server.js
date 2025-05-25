@@ -5,19 +5,17 @@ import cors from "cors"; //middleware to allow client to communicate with backen
 //import routes (where incoming API reuqests for each path will be handled)
 import adminAuth from "./routes/libAuth.js";
 import bookManagement from "./routes/book.js";
-//import vendors from "./routes/vendor.js";
 
 //set up server port and express framework
 const PORT = process.env.PORT || 5050;
-const app = express(); //to handle requests
+const app = express(); 
 
-//app.use function is a middleware that gets executed for every incoming request
+
 app.use(cors()); //enables cors to support the express app
-app.use(express.json()); //parses incoming request to JSON format
+app.use(express.json()); 
 
 app.use("/libAuth", adminAuth);
 app.use("/book", bookManagement);
-//app.use("/vendors", vendors);
 
 // start the Express server
 app.listen(PORT, () => {
